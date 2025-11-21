@@ -23,7 +23,7 @@ CFLAGS = -std=c11 -Wall -Wextra -pedantic $(SDL3_INCLUDE) $(GAME_LIBS)
 LDFLAGS = $(SDL3_LIB_PATH) $(SDL3_LIBS)
 
 # Compiled Target Name (will be build/myApp)
-TARGET = myApp
+TARGET = myApp.out
 
 # --- Build Rules ---
 
