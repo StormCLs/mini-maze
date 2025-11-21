@@ -5,6 +5,7 @@
 #include "render.h"
 #include "maze.h"
 #include "player.h"
+#include "input.h"
 
 const int targetFPS = 60;
 const int frameDelay = 1000 / targetFPS;
@@ -34,7 +35,6 @@ void InitMazeGame() {
 }
 
 bool RunGameLoop(SDL_Renderer *renderer) {
-    SDL_Event event;
     bool running = true;
     int frame = 0;
 
@@ -43,13 +43,13 @@ bool RunGameLoop(SDL_Renderer *renderer) {
     while(running) {
         frameStart = SDL_GetTicks();
 
-        while (SDL_PollEvent(&event)) {
-            if(event.type == SDL_EVENT_QUIT) {
-                return false;
-            }
-        }
+        if (!HandleInput()) return false;
 
         UpdateFrame(renderer);
+
+        if (grid[player.y][player.x] == 3) {
+            break;
+        }
 
         frameTime = SDL_GetTicks() - frameStart;
         frame++;

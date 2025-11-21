@@ -2,7 +2,7 @@
 CC = gcc
 
 # Source files (located in src/)
-SRC = src/player.c src/maze.c src/render.c src/game.c src/init.c src/main.c
+SRC = src/input.c src/player.c src/maze.c src/render.c src/game.c src/init.c src/main.c
 
 # Object files (They will be created in the build/ folder)
 # We use 'patsubst' to transform 'src/file.c' into 'build/file.o'
@@ -23,7 +23,7 @@ CFLAGS = -std=c11 -Wall -Wextra -DENABLE_DEBUG $(SDL3_INCLUDE) $(GAME_LIBS)
 LDFLAGS = $(SDL3_LIB_PATH) $(SDL3_LIBS)
 
 # Compiled Target Name (will be build/myApp)
-TARGET = myApp.out
+TARGET = myApp
 
 # --- Build Rules ---
 
