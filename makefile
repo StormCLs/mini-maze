@@ -17,7 +17,7 @@ SDL3_LIB_PATH = -L/usr/local/lib
 SDL3_LIBS = -lSDL3
 
 # Compilation Flags
-CFLAGS = -std=c11 -Wall -Wextra -pedantic $(SDL3_INCLUDE) $(GAME_LIBS)
+CFLAGS = -std=c11 -Wall -Wextra -DENABLE_DEBUG $(SDL3_INCLUDE) $(GAME_LIBS)
 
 # Linker Flags
 LDFLAGS = $(SDL3_LIB_PATH) $(SDL3_LIBS)

@@ -2,9 +2,11 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "init.h"
+#include "debug.h"
 
 bool InitializeSDLResouces(SDL_Window **window, SDL_Renderer **renderer) {
     if(!SDL_Init(SDL_INIT_VIDEO)) {
+        LOG_ERROR("SDL_Init error: %s", SDL_GetError());
         return false;
     }
     *window = SDL_CreateWindow (
@@ -15,6 +17,7 @@ bool InitializeSDLResouces(SDL_Window **window, SDL_Renderer **renderer) {
     );
 
     if(!*window) {
+        LOG_ERROR("SDL_CreateWindow error: %s", SDL_GetError());
         SDL_Quit();
         return false;
     }
@@ -22,10 +25,14 @@ bool InitializeSDLResouces(SDL_Window **window, SDL_Renderer **renderer) {
     *renderer = SDL_CreateRenderer (*window, NULL);
 
     if(!*renderer) {
+        LOG_ERROR("SDL_CreateRenderer error: %s", SDL_GetError());
         SDL_DestroyWindow(*window);
         SDL_Quit();
         return false;
     }
+
+    LOG_DEBUG("Initialize SDL resources succesful");
+
     return true;
 }
 void CleanupSDLResources(SDL_Window *window, SDL_Renderer *renderer) {
@@ -35,5 +42,8 @@ void CleanupSDLResources(SDL_Window *window, SDL_Renderer *renderer) {
     if (renderer) {
         SDL_DestroyRenderer(renderer);
     }
+
     SDL_Quit();
+
+    LOG_DEBUG("Clean up SDL resources succesful");
 }

@@ -10,7 +10,7 @@
                 "&&",
                 "make",
                 "&&",
-                "build/myApp"
+                "build/myApp.out"
             ],
             "problemMatcher": [],
             "group": {
