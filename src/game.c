@@ -4,6 +4,7 @@
 #include "debug.h"
 #include "render.h"
 #include "maze.h"
+#include "player.h"
 
 const int targetFPS = 60;
 const int frameDelay = 1000 / targetFPS;
@@ -20,7 +21,7 @@ void InitMazeGame() {
     maze.startX = sX;
 
     Carve(sY, sX);
-    
+
     grid[maze.startY][maze.startX] = 2;
     LOG_INFO("Spawn point at [%d][%d]", maze.startY, maze.startX);
     
@@ -28,6 +29,8 @@ void InitMazeGame() {
     LOG_INFO("Exit point at [%d][%d]", maze.endY, maze.endX);
     
     LOG_INFO("The maze was succesfully deployed");
+
+    PlayerInit();
 }
 
 bool RunGameLoop(SDL_Renderer *renderer) {

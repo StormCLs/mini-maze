@@ -3,6 +3,7 @@
 #include "init.h"
 #include "render.h"
 #include "maze.h"
+#include "player.h"
 
 void RenderBackground(SDL_Renderer *renderer) {
     SDL_FRect rect;
@@ -32,8 +33,22 @@ void RenderBackground(SDL_Renderer *renderer) {
     }
 }
 
+void RenderePlayer(SDL_Renderer *renderer) {
+    SDL_FRect rect;
+
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+
+    rect.y = (float)player.y * TILE;
+    rect.x = (float)player.x * TILE;
+    rect.h = (float)TILE;
+    rect.w = (float)TILE;
+
+    SDL_RenderFillRect(renderer, &rect);
+}
+
 void UpdateFrame(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
     RenderBackground(renderer);
+    RenderePlayer(renderer);
     SDL_RenderPresent(renderer);
 }
