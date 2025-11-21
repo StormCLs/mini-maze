@@ -11,7 +11,7 @@ int main() {
     InitializeSDLResouces(&window, &renderer);
 
     while (1) {
-        if(!RunGameLoop()) {
+        if(!RunGameLoop(renderer)) {
             break;
         }
     }
