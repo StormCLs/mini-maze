@@ -4,6 +4,7 @@
 #include <SDL3/SDL.h>
 #include <stdbool.h>
 
+void InitMazeGame();
 bool RunGameLoop(SDL_Renderer *renderer);
 
 #endif

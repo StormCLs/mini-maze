@@ -8,8 +8,11 @@ typedef struct {
     int endX, endY;
 } Maze;
 
+extern Maze maze;
 extern int grid[GRID_H][GRID_W];
 
 void InitGrid();
+void ShuffleDirs(int *a, int n);
+void Carve(int y, int x);
 
 #endif
