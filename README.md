@@ -63,7 +63,7 @@ sudo apt install libsdl3-dev
 Download di situs resmi:
 
 ```arduino
-https://ww.msys2.org
+https://www.msys2.org
 ```
 
 Setelah selesai, buka terminal MSYS2 MSYS dan update sistem:
