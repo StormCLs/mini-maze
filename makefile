@@ -2,7 +2,7 @@
 CC = gcc
 
 # Source files (located in src/)
-SRC = src/init.c src/main.c
+SRC = src/game.c src/init.c src/main.c
 
 # Object files (They will be created in the build/ folder)
 # We use 'patsubst' to transform 'src/file.c' into 'build/file.o'

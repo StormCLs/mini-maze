@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "init.h"
 #include "debug.h"
+#include "game.h"
 
 int main() {
     SDL_Window *window = NULL;
@@ -9,7 +10,12 @@ int main() {
 
     InitializeSDLResouces(&window, &renderer);
 
-    SDL_Delay(2000);
+    while (1) {
+        if(!RunGameLoop()) {
+            break;
+        }
+    }
+    
     CleanupSDLResources(window,renderer);
 
     return 0;
