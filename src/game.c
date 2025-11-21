@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include "debug.h"
 #include "render.h"
+#include "maze.h"
 
 const int targetFPS = 60;
 const int frameDelay = 1000 / targetFPS;
@@ -12,6 +13,8 @@ bool RunGameLoop(SDL_Renderer *renderer) {
     SDL_Event event;
     bool running = true;
     int frame = 0;
+    InitGrid();
+
     while(running) {
         frameStart = SDL_GetTicks();
 
@@ -20,6 +23,7 @@ bool RunGameLoop(SDL_Renderer *renderer) {
                 return false;
             }
         }
+
         UpdateFrame(renderer);
 
         frameTime = SDL_GetTicks() - frameStart;
@@ -33,5 +37,6 @@ bool RunGameLoop(SDL_Renderer *renderer) {
             SDL_Delay(frameDelay - frameTime);
         }
     }
+
     return true;
 }

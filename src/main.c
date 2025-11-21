@@ -8,7 +8,8 @@ int main() {
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
 
-    InitializeSDLResouces(&window, &renderer);
+    if(!InitializeSDLResouces(&window, &renderer)) 
+        return 1;
 
     while (1) {
         if(!RunGameLoop(renderer)) {

@@ -4,6 +4,11 @@
 #include "init.h"
 #include "debug.h"
 
+const int WindowSize[2] = {
+    TILE * GRID_W,
+    TILE * GRID_H
+};
+
 bool InitializeSDLResouces(SDL_Window **window, SDL_Renderer **renderer) {
     if(!SDL_Init(SDL_INIT_VIDEO)) {
         LOG_ERROR("SDL_Init error: %s", SDL_GetError());
@@ -11,8 +16,8 @@ bool InitializeSDLResouces(SDL_Window **window, SDL_Renderer **renderer) {
     }
     *window = SDL_CreateWindow (
         "Test",
-        320,
-        320,
+        WindowSize[0],
+        WindowSize[1],
         0
     );
 
